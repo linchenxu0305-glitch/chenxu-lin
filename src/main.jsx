@@ -1195,7 +1195,7 @@ function Header({ language, onLanguageChange }) {
   const closeMenu = () => setMenuOpen(false);
 
   return (
-    <header className={`site-header ${scrolled ? "is-scrolled" : ""}`}>
+    <header className={`site-header ${scrolled ? "is-scrolled" : ""} ${menuOpen ? "is-menu-open" : ""}`}>
       <a className="brand" href="#home" onClick={closeMenu}>
         <span>{engineer.displayName[language]}</span>
       </a>
