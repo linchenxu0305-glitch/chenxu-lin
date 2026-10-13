@@ -1043,20 +1043,20 @@ function useCreativeMotion() {
         const timeline = gsap.timeline({
           scrollTrigger: {
             trigger: section,
-            start: "top 76%",
+            start: "top 80%",
             once: true,
           },
           defaults: { ease: "power4.out" },
         });
 
         if (eyebrow) {
-          timeline.to(eyebrow, { xPercent: 0, opacity: 0.18, scaleX: 1, duration: 1.15 });
+          timeline.to(eyebrow, { xPercent: 0, opacity: 0.18, scaleX: 1, duration: 0.9 });
         }
         if (title) {
-          timeline.to(title, { y: 0, opacity: 1, clipPath: "inset(0% 0% 0% 0%)", duration: 1.05 }, "-=0.58");
+          timeline.to(title, { y: 0, opacity: 1, clipPath: "inset(0% 0% 0% 0%)", duration: 0.84 }, "-=0.5");
         }
         if (intro) {
-          timeline.to(intro, { y: 0, opacity: 1, duration: 0.88 }, "-=0.62");
+          timeline.to(intro, { y: 0, opacity: 1, duration: 0.72 }, "-=0.55");
         }
         if (stagedItems.length) {
           timeline.to(
@@ -1065,10 +1065,10 @@ function useCreativeMotion() {
               y: 0,
               opacity: 1,
               clipPath: "inset(0% 0% 0% 0%)",
-              duration: 1.05,
-              stagger: { each: 0.11, from: "start" },
+              duration: 0.84,
+              stagger: { each: 0.08, from: "start" },
             },
-            "-=0.4"
+            "-=0.36"
           );
         }
       });
@@ -1081,7 +1081,7 @@ function useCreativeMotion() {
           { clipPath: "inset(0% 0% 100% 0%)" },
           {
             clipPath: "inset(0% 0% 0% 0%)",
-            duration: 1.18,
+            duration: 0.94,
             ease: "power4.out",
             scrollTrigger: {
               trigger: frame,
@@ -1336,9 +1336,9 @@ function Portfolio({ language }) {
           y: 0,
           opacity: 1,
           clipPath: "inset(0% 0% 0% 0%)",
-          duration: 0.9,
+          duration: 0.75,
           ease: "power4.out",
-          stagger: 0.055,
+          stagger: 0.04,
           overwrite: true,
           onComplete: () => ScrollTrigger.refresh(),
         }
