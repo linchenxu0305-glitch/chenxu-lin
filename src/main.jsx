@@ -70,6 +70,7 @@ const i18n = {
       closeBackdrop: "关闭弹窗",
       close: "关闭",
       netease: "在网易云收听完整版本",
+      qqMusic: "在 QQ 音乐收听完整版本",
       watchVideo: "打开微信视频号观看",
       videoNote: "微信视频号页面可能限制站内嵌入，按钮可在新标签页打开完整视频。",
     },
@@ -190,6 +191,7 @@ const i18n = {
       closeBackdrop: "Close modal",
       close: "Close",
       netease: "Listen on NetEase Cloud Music",
+      qqMusic: "Listen on QQ Music",
       watchVideo: "Watch on WeChat Channels",
       videoNote:
         "WeChat may block embedded playback on external sites. Use the button to open the full video in a new tab.",
@@ -398,6 +400,20 @@ const works = [
     coverSrc: "https://p2.music.126.net/btib6zPbLGLmu-dqIDK45Q==/109951171914754196.jpg?param=600y600",
     credits: "母带：林晨旭",
     creditSource: "按用户确认标注",
+  },
+  {
+    id: 41,
+    // 【QQ音乐链接】梦春 - 罗可Lorkin：https://c6.y.qq.com/base/fcgi-bin/u?__=Tkyx29S1qCWp
+    platform: "qqMusic",
+    platformUrl: "https://c6.y.qq.com/base/fcgi-bin/u?__=Tkyx29S1qCWp",
+    title: "梦春",
+    artist: "罗可Lorkin",
+    type: "混音 / 母带",
+    workTypes: ["混音作品", "母带作品"],
+    genres: ["流行"],
+    coverSrc: "https://y.qq.com/music/photo_new/T002R300x300M000000iP9KJ0x1lN3_1.jpg?max_age=2592000",
+    credits: "混音：林晨旭 / 母带：林晨旭",
+    creditSource: "QQ音乐署名已确认",
   },
   {
     id: 8,
@@ -802,6 +818,34 @@ const works = [
     externalUrl: "https://weixin.qq.com/sph/ATjQDkIta7",
     credits: "混音：林晨旭",
     creditSource: "用户提供视频链接",
+  },
+  {
+    id: 42,
+    // 【QQ音乐链接】泪殇秋雨 - 黑豆ado：https://c6.y.qq.com/base/fcgi-bin/u?__=0XKSQUS1qLa3
+    platform: "qqMusic",
+    platformUrl: "https://c6.y.qq.com/base/fcgi-bin/u?__=0XKSQUS1qLa3",
+    title: "泪殇秋雨",
+    artist: "黑豆ado",
+    type: "混音 / 母带",
+    workTypes: ["混音作品", "母带作品"],
+    genres: ["流行"],
+    coverSrc: "https://y.qq.com/music/photo_new/T002R300x300M000001YmzGj1bh9sf_1.jpg?max_age=2592000",
+    credits: "混音：林晨旭 / 母带：林晨旭",
+    creditSource: "QQ音乐署名已确认",
+  },
+  {
+    id: 43,
+    // 【QQ音乐链接】红 - 凯特凯西：https://c6.y.qq.com/base/fcgi-bin/u?__=QipsT2S1qEWT
+    platform: "qqMusic",
+    platformUrl: "https://c6.y.qq.com/base/fcgi-bin/u?__=QipsT2S1qEWT",
+    title: "红",
+    artist: "凯特凯西",
+    type: "混音 / 母带",
+    workTypes: ["混音作品", "母带作品"],
+    genres: ["流行"],
+    coverSrc: "https://y.qq.com/music/photo_new/T002R300x300M000000UpFqL2RnsqW_1.jpg?max_age=2592000",
+    credits: "混音：林晨旭 / 母带：林晨旭",
+    creditSource: "QQ音乐署名已确认",
   }
 ];
 
@@ -1499,6 +1543,21 @@ function WorkModal({ work, language, onClose }) {
 
 function WorkAction({ work, language }) {
   const text = i18n[language];
+
+  if (work.platform === "qqMusic") {
+    return (
+      <div className="netease-action">
+        <a
+          className="netease-link"
+          href={work.platformUrl}
+          target="_blank"
+          rel="noreferrer"
+        >
+          {text.modal.qqMusic}
+        </a>
+      </div>
+    );
+  }
 
   if (work.externalUrl) {
     return (
